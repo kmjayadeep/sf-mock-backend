@@ -16,13 +16,8 @@ app.get('/([\$])metadata', (req,res) => {
 })
 
 app.get('/User*', (req, res) => {
-  // const user = fs.readFileSync('User');
-  // res.json(JSON.parse(user));
-
-
-  const user = fs.readFileSync('User.xml');
-  res.type('application/xml');
-  res.send(user);
+  const user = fs.readFileSync('User');
+  res.json(JSON.parse(user));
 })
 
 https.createServer({
