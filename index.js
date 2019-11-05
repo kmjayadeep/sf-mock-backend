@@ -16,9 +16,13 @@ app.get('/([\$])metadata', (req,res) => {
 })
 
 app.get('/User*', (req, res) => {
-  console.log(req.headers)
+  // const user = fs.readFileSync('User');
+  // res.json(JSON.parse(user));
+
+
+  const user = fs.readFileSync('User.xml');
   res.type('application/xml');
-  res.send(fs.readFileSync('User'));
+  res.send(user);
 })
 
 https.createServer({
@@ -28,5 +32,5 @@ https.createServer({
   rejectUnauthorized: false
 }, app)
 .listen(443, function () {
-  console.log('Example app listening')
+  console.log('Server started')
 })
