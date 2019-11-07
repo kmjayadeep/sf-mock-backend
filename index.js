@@ -16,7 +16,7 @@ app.get('/([\$])metadata', (req,res) => {
 })
 
 app.get('/User*', (req, res) => {
-  const user = fs.readFileSync('User');
+  const user = fs.readFileSync('User.json');
   res.json(JSON.parse(user));
 })
 
