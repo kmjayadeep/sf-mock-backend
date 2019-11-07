@@ -1,0 +1,38 @@
+{
+    "@odata.context": "$metadata#ScheduledOfferingParticipants",
+    "@odata.metadataEtag": "W/\"2a186de6-659e-4c11-8417-1608717309cb\"",
+    "value": [{
+        "totalCount": 1,
+        "componentID": "item1",
+        "componentTypeID": "ONLINE",
+        "revisionDate": 1534167720000,
+        "scheduleID": 8001,
+        "creationDate": 1534406384000,
+        "startDate": 1535094000000,
+        "studentID": "00034568",
+        "studentFirstName": "sushant",
+        "studentLastName": "kumar",
+        "studentMI": null,
+        "gender": "M",
+        "emailAddress": "2@a.com",
+        "phoneNumber": "9344444",
+        "legalEntityID": "test-le",
+        "completionStatusID": "COMPLETED",
+        "completionDate": null,
+        "userCustomColumns": [{
+                "columnNumber": 50,
+                "columnValue": "a@a.com"
+            },
+            {
+                "columnNumber": 40,
+                "columnValue": "4343"
+            }
+        ],
+        "participantCriteria": {
+            "fromDate": "0",
+            "toDate": null,
+            "lastUpdateTimestamp": null,
+            "legalEntityID": null
+        }
+    }]
+}

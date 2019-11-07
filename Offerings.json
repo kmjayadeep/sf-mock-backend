@@ -1,0 +1,60 @@
+{
+    "@odata.context": "$metadata#ScheduledOfferings",
+    "@odata.metadataEtag": "W/\"2a186de6-659e-4c11-8417-1608717309cb\"",
+    "@odata.count": 1,
+    "value": [
+        {
+            "totalCount": 1,
+            "componentID": "item1",
+            "componentTypeID": "PRE",
+            "revisionDate": 1552396509000,
+            "scheduleID": 8001,
+            "itemTitle": "Test item 1",
+            "offeringStartDate": 1573127633336,
+            "offeringEndDate": 1573227633336,
+            "deliveryMethod": "",
+            "scheduledOfferingDescription": "",
+            "scheduleOfferingContact": "-",
+            "facilityName": "Instalacion_FUNDAE",
+            "facilityDescription": "Instalacion FUNDAE",
+            "facilityComments": "",
+            "primaryLocationID": null,
+            "facilityAddress": "Passeig de la Zona Franca 53",
+            "facilityPostal": "08038",
+            "facilityCity": "Barcelona",
+            "facilityCountry": "Spain",
+            "creditHours": 24,
+            "cpeHours": 0,
+            "contactHours": 24,
+            "offeringCloseDate": 1552431600000,
+            "offeringCancelledDate": null,
+            "legalEntityID": "FT",
+            "notActive": false,
+            "scheduleOfferingLastUpdatedUser": "SFADMIN",
+            "scheduleOfferingLastUpdatedTimeStamp": 1552480742109,
+            "numberOfParticipants": 5,
+            "creationDate": 1552396652373,
+            "daysOfTeaching": 1,
+            "observations": "",
+            "lengthOfOffering": 8,
+            "offeringCustomColumns": [],
+            "segmentDetails": [
+                {
+                    "scheduleSegmentNumber": 1,
+                    "description": null,
+                    "startTime": 1517925600000,
+                    "endTime": 1517954400000,
+                    "lastUpdatedUser": "SFADMIN",
+                    "lastUpdatedTimeStamp": 1552396652431,
+                    "segmentIsVirtual": false
+                }
+            ],
+            "instructorInfo": [],
+            "offeringCriteria": {
+                "startDate": "000000000000000",
+                "lastUpdateTimestamp": null,
+                "legalEntityID": []
+            }
+        }
+    ]
+}

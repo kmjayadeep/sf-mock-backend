@@ -1,12 +1,12 @@
 {
     "@odata.context": "$metadata#Items",
     "@odata.metadataEtag": "W/\"d5c75af1-a018-43ef-93e0-6a6285d06ee4\"",
-    "@odata.count": 6950,
+    "@odata.count": 1,
     "value": [{
-        "componentID": "W9322",
+        "componentID": "item1",
         "componentTypeID": "PRE",
         "revisionDate": 1544436256000,
-        "title": "Formación de Tendencias e Innovación en el sector TI",
+        "title": "Test item 1",
         "createDate": 315532800000,
         "creditHrs": null,
         "cpeHrs": null,
@@ -52,6 +52,6 @@
             "toDate": null,
             "lastUpdateTimestamp": null
         },
-        "totalCount": 6950
+        "totalCount": 1
     }]
 }

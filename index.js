@@ -2,6 +2,7 @@ var express = require('express')
 var fs = require('fs')
 var https = require('https')
 var app = express()
+const moment = require('moment');
 const morgan = require('morgan');
 
 app.use(morgan('dev'));
@@ -20,7 +21,7 @@ app.get('/User*', (req, res) => {
   res.json(JSON.parse(user));
 })
 
-app.post('/lms//oauth-api/rest/v1/token', (_, res) => {
+app.post('/lms/oauth-api/rest/v1/token', (_, res) => {
   res.json({
     access_token: "token-sample",
     expires_in: 1800,
@@ -28,21 +29,46 @@ app.post('/lms//oauth-api/rest/v1/token', (_, res) => {
   });
 })
 
-app.get('/lms//odatav4/public/admin/dataextraction-service/v1/Items', (req, res) => {
+const empty = {
+  "@odata.context": "$metadata#Items",
+  "@odata.metadataEtag": "",
+  "@odata.count": 1,
+  "value": []
+};
+
+app.get('/lms/odatav4/public/admin/dataextraction-service/v1/Items', (req, res) => {
+  res.setHeader('date', moment().format('ddd, DD MMM YYYY HH:mm:ss ')+'GMT')
+  // return res.json(empty);
   const filter = req.query['$filter'] || '';
-  console.log(req.query)
-  res.setHeader('date', new Date())
-  // res.setHeader('date', 'Thu, 07 Nov 2019 08:35:01 GMT')
   if (req.query['$skip'] == 0 && !filter.includes('FT_')) {
     const user = fs.readFileSync('Items.json');
     res.json(JSON.parse(user));
   } else {
-    res.json({
-      "@odata.context": "$metadata#Items",
-      "@odata.metadataEtag": "W/\"d5c75af1-a018-43ef-93e0-6a6285d06ee4\"",
-      "@odata.count": 6950,
-      "value": []
-    });
+    res.json(empty);
+  }
+})
+
+app.get('/lms/odatav4/public/admin/dataextraction-service/v1/ScheduledOfferings', (req, res) => {
+  res.setHeader('date', moment().format('ddd, DD MMM YYYY HH:mm:ss ')+'GMT')
+  // return res.json(empty);
+  const filter = req.query['$filter'] || '';
+  if (req.query['$skip'] == 0 && !filter.includes('FT_')) {
+    const user = fs.readFileSync('Offerings.json');
+    res.json(JSON.parse(user));
+  } else {
+    res.json(empty);
+  }
+})
+
+app.get('/lms/odatav4/public/admin/dataextraction-service/v1/ScheduledOfferingParticipants', (req, res) => {
+  const filter = req.query['$filter'] || '';
+  res.setHeader('date', moment().format('ddd, DD MMM YYYY HH:mm:ss ')+'GMT')
+  // return res.json(empty);
+  if (req.query['$skip'] == 0 && !filter.includes('FT_')) {
+    const user = fs.readFileSync('OfferingParticipants.json');
+    res.json(JSON.parse(user));
+  } else {
+    res.json(empty);
   }
 })
 
