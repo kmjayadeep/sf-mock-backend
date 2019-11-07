@@ -29,12 +29,20 @@ app.post('/lms//oauth-api/rest/v1/token', (_, res) => {
 })
 
 app.get('/lms//odatav4/public/admin/dataextraction-service/v1/Items', (req, res) => {
-  console.log(req.query);
-  if(req.query['$skip']==0){
+  const filter = req.query['$filter'] || '';
+  console.log(req.query)
+  res.setHeader('date', new Date())
+  // res.setHeader('date', 'Thu, 07 Nov 2019 08:35:01 GMT')
+  if (req.query['$skip'] == 0 && !filter.includes('FT_')) {
     const user = fs.readFileSync('Items.json');
     res.json(JSON.parse(user));
-  }else {
-    res.json('ok');
+  } else {
+    res.json({
+      "@odata.context": "$metadata#Items",
+      "@odata.metadataEtag": "W/\"d5c75af1-a018-43ef-93e0-6a6285d06ee4\"",
+      "@odata.count": 6950,
+      "value": []
+    });
   }
 })
 
