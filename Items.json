@@ -1,0 +1,57 @@
+{
+    "@odata.context": "$metadata#Items",
+    "@odata.metadataEtag": "W/\"d5c75af1-a018-43ef-93e0-6a6285d06ee4\"",
+    "@odata.count": 6950,
+    "value": [{
+        "componentID": "W9322",
+        "componentTypeID": "PRE",
+        "revisionDate": 1544436256000,
+        "title": "Formación de Tendencias e Innovación en el sector TI",
+        "createDate": 315532800000,
+        "creditHrs": null,
+        "cpeHrs": null,
+        "comments": "",
+        "deliveryMethodId": "EAU",
+        "legalEntityID": "",
+        "totalLength": null,
+        "componentGoals": "",
+        "instructorMaterials": "",
+        "active": "Y",
+        "itemCustomColumns": [{
+                "columnNumber": 100,
+                "columnValue": "FE"
+            },
+            {
+                "columnNumber": 140,
+                "columnValue": "W"
+            },
+            {
+                "columnNumber": 150,
+                "columnValue": "Competencias Digitales & TI"
+            },
+            {
+                "columnNumber": 160,
+                "columnValue": "00/01/1980"
+            },
+            {
+                "columnNumber": 180,
+                "columnValue": "A"
+            },
+            {
+                "columnNumber": 280,
+                "columnValue": "N"
+            },
+            {
+                "columnNumber": 290,
+                "columnValue": "676914412"
+            }
+        ],
+        "criteria": {
+            "legalEntityID": [],
+            "fromDate": "000000000000000",
+            "toDate": null,
+            "lastUpdateTimestamp": null
+        },
+        "totalCount": 6950
+    }]
+}
