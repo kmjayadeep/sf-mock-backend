@@ -37,7 +37,7 @@ const empty = {
 };
 
 app.get('/lms/odatav4/public/admin/dataextraction-service/v1/Items', (req, res) => {
-  res.setHeader('date', moment().format('ddd, DD MMM YYYY HH:mm:ss ')+'GMT')
+  res.setHeader('date', moment().format('ddd, DD MMM YYYY HH:mm:ss ') + 'GMT')
   // return res.json(empty);
   const filter = req.query['$filter'] || '';
   if (req.query['$skip'] == 0 && !filter.includes('FT_')) {
@@ -49,7 +49,7 @@ app.get('/lms/odatav4/public/admin/dataextraction-service/v1/Items', (req, res) 
 })
 
 app.get('/lms/odatav4/public/admin/dataextraction-service/v1/ScheduledOfferings', (req, res) => {
-  res.setHeader('date', moment().format('ddd, DD MMM YYYY HH:mm:ss ')+'GMT')
+  res.setHeader('date', moment().format('ddd, DD MMM YYYY HH:mm:ss ') + 'GMT')
   // return res.json(empty);
   const filter = req.query['$filter'] || '';
   if (req.query['$skip'] == 0 && !filter.includes('FT_')) {
@@ -62,7 +62,7 @@ app.get('/lms/odatav4/public/admin/dataextraction-service/v1/ScheduledOfferings'
 
 app.get('/lms/odatav4/public/admin/dataextraction-service/v1/ScheduledOfferingParticipants', (req, res) => {
   const filter = req.query['$filter'] || '';
-  res.setHeader('date', moment().format('ddd, DD MMM YYYY HH:mm:ss ')+'GMT')
+  res.setHeader('date', moment().format('ddd, DD MMM YYYY HH:mm:ss ') + 'GMT')
   // return res.json(empty);
   if (req.query['$skip'] == 0 && !filter.includes('FT_')) {
     const user = fs.readFileSync('OfferingParticipants.json');
@@ -72,12 +72,20 @@ app.get('/lms/odatav4/public/admin/dataextraction-service/v1/ScheduledOfferingPa
   }
 })
 
-https.createServer({
-    key: fs.readFileSync('security/keytmp.pem'),
-    cert: fs.readFileSync('security/cert.pem'),
-    requestCert: false,
-    rejectUnauthorized: false
-  }, app)
-  .listen(443, function () {
-    console.log('Server started')
+const env = process.env.NODE_ENV;
+
+if (env == 'development') {
+  https.createServer({
+      key: fs.readFileSync('security/keytmp.pem'),
+      cert: fs.readFileSync('security/cert.pem'),
+      requestCert: false,
+      rejectUnauthorized: false
+    }, app)
+    .listen(process.env.PORT || 3000, function () {
+      console.log('Server started')
+    })
+} else {
+  app.listen(process.env.PORT || 3000, ()=>{
+    console.log('prod server started')
   })
+}
