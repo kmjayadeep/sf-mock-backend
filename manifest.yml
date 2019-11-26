@@ -2,4 +2,4 @@
 applications:
 - name: sf-backend
   random-route: true
-  memory: 128M
+  memory: 2512M
